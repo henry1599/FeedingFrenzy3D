@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9938e02597404e54f8bd7d20d972854e, type: 3}
+  m_Name: SoundMapCommon
+  m_EditorClassIdentifier: 
+  soundType: 0
+  path: SoundData
+  SoundMappingList:
+  - name: SFX_CHOOSE_COLLECTABLE_OBJECT
+    Id: 11
+    Data: {fileID: 11400000, guid: 4e0c6df2f0138b84c9ab42194030a3f2, type: 2}
+  - name: SFX_CHOOSE_WRONG_COLLECTABLE_OBJECT
+    Id: 12
+    Data: {fileID: 11400000, guid: b3029605e17676846b72a25b14c2eecf, type: 2}
+  - name: SFX_CHOOSE_EASTER_EGG_OBJECT
+    Id: 13
+    Data: {fileID: 11400000, guid: eb9e49ff3774aff42be940177b8356e8, type: 2}
+  - name: SFX_UI_BUTTON_CLICK
+    Id: 101
+    Data: {fileID: 11400000, guid: 382dd52596975d64abcb8eb94ea686ea, type: 2}
+  - name: SFX_UI_WIN
+    Id: 102
+    Data: {fileID: 11400000, guid: 41fe925908d5e594d91077372a304c40, type: 2}
+  - name: SFX_UI_START_MAIN
+    Id: 103
+    Data: {fileID: 11400000, guid: bcc9d4d662c1db84198c772b36f9f91a, type: 2}
