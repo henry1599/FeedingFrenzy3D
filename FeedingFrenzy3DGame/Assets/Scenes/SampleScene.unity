@@ -567,7 +567,7 @@ MonoBehaviour:
   animalType: 9
   animalName: Clownfish
   targetModel: {fileID: 1467032387}
-  movementSpeed: 5
+  movementSpeed: 10
   rotateSpeed: 15
   useCustomCamera: 0
   zDepth: 0
