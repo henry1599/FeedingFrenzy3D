@@ -1,18 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+namespace FeedingFrenzy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Level : MonoBehaviour
     {
-        
-    }
+        [Range(0f, 20f), SerializeField] float width; 
+        [Range(0f, 20f), SerializeField] float height;
+        [SerializeField] PolygonCollider2D polygonCollider2D;
+        [ShowNativeProperty] public Vector2 Bounds
+        {
+            get => new Vector2(this.width, this.height);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(transform.position, Bounds);
+        }
+#if UNITY_EDITOR
+        void OnValidate()
+        {
+            if (this.polygonCollider2D == null)
+                return;
+            this.polygonCollider2D.points = new Vector2[4]
+            {
+                new Vector2(transform.position.x + this.width / 2f, transform.position.y + this.height / 2f),
+                new Vector2(transform.position.x - this.width / 2f, transform.position.y + this.height / 2f),
+                new Vector2(transform.position.x - this.width / 2f, transform.position.y - this.height / 2f),
+                new Vector2(transform.position.x + this.width / 2f, transform.position.y - this.height / 2f)
+            };
+        }
+#endif
     }
 }

@@ -31,6 +31,7 @@ namespace FeedingFrenzy
         [SerializeField] protected float zDepth = 0;
         [ShowIf("useCustomCamera"), SerializeField] protected Camera customCamera;
         [ReadOnly, SerializeField] protected Vector3 mousePositionWorldSpace;
+        [ReadOnly, SerializeField] protected Vector3 mousePositionScreenSpace;
         public Camera MainCamera
         {
             get
@@ -49,6 +50,7 @@ namespace FeedingFrenzy
         public float ZDepth => this.zDepth;
         public GameObject TargetModel => this.targetModel;
         public abstract Vector3 GatherMouseInput();
+        public abstract Vector3 GatherMouseScreenInput();
 
         protected virtual void Start()
         {
@@ -57,6 +59,7 @@ namespace FeedingFrenzy
         protected virtual void Update()
         {
             this.mousePositionWorldSpace = GatherMouseInput();
+            this.mousePositionScreenSpace = GatherMouseScreenInput();
         }
         protected virtual void FixedUpdate()
         {

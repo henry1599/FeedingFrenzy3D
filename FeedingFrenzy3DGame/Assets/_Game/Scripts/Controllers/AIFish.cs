@@ -32,5 +32,10 @@ namespace FeedingFrenzy
             currentQuad = Quaternion.Slerp(currentQuad, quaternion, this.rotateSpeed * Time.deltaTime);
             this.targetModel.transform.rotation = currentQuad;
         }
+
+        public override Vector3 GatherMouseScreenInput()
+        {
+            return Vector3.zero;
+        }
     }
 }

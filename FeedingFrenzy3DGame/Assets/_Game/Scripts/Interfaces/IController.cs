@@ -7,5 +7,6 @@ namespace FeedingFrenzy.Interfaces
     public interface IController
     {
         public Vector3 GatherMouseInput();
+        public Vector3 GatherMouseScreenInput();
     }
 }

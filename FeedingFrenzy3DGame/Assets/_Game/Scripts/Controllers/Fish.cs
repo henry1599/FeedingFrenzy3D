@@ -21,8 +21,8 @@ namespace FeedingFrenzy
             base.Update();
             Move();
             FlipRotate();
-            this.currentLookDirection = this.lastMouseInputPosition.x > this.mousePositionWorldSpace.x ? Vector3.left : this.lastMouseInputPosition.x < mousePositionWorldSpace.x ? Vector3.right : this.currentLookDirection;
-            this.lastMouseInputPosition = this.mousePositionWorldSpace;
+            this.currentLookDirection = this.lastMouseInputPosition.x > this.mousePositionScreenSpace.x ? Vector3.left : this.lastMouseInputPosition.x < mousePositionScreenSpace.x ? Vector3.right : this.currentLookDirection;
+            this.lastMouseInputPosition = this.mousePositionScreenSpace;
         }
         protected void Move()
         {
@@ -31,6 +31,12 @@ namespace FeedingFrenzy
         protected void FlipRotate()
         {
             this.targetModel.transform.RotateToward(this.currentLookDirection, this.rotateSpeed, upAxis: Vector3.up, eAxis.X | eAxis.Z);
+        }
+
+        public override Vector3 GatherMouseScreenInput()
+        {
+            var pos = Input.mousePosition;
+            return new Vector3(pos.x, pos.y, this.zDepth);
         }
     }
 }
