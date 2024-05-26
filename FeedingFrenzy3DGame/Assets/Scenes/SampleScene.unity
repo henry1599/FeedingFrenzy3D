@@ -159,6 +159,7 @@ MonoBehaviour:
   polygonCollider2D: {fileID: 211154860}
   zDepth: 0
   spawner: {fileID: 211154861}
+  poolManagerTransform: {fileID: 1312525585}
 --- !u!4 &211154859
 Transform:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ MonoBehaviour:
       draggable: 1
       expandable: 1
       multipleSelection: 1
-      isExpanded: 1
+      isExpanded: 0
       label:
         m_Text: Keys
         m_Image: {fileID: 0}
@@ -258,7 +259,7 @@ MonoBehaviour:
       elementNameOverride: 
       elementIcon: {fileID: 0}
     reqReferences: {fileID: 0}
-    isExpanded: 1
+    isExpanded: 0
     _keyValues: 010000000200000003000000
     _keys: 010000000200000003000000
     _values:
@@ -267,16 +268,19 @@ MonoBehaviour:
         type: 3}
       BurstAmount: 5
       SpawnRate: 2
+      MaxAmount: 0
     - FishType: 7
       FishPrefab: {fileID: 3218262974224348414, guid: f1019a8c3ba688a40a80350608a11919,
         type: 3}
       BurstAmount: 3
       SpawnRate: 1
+      MaxAmount: 0
     - FishType: 9
       FishPrefab: {fileID: 5282283659001997933, guid: 5ed02cd5a4b54e943bd426dabbb920b6,
         type: 3}
       BurstAmount: 1
       SpawnRate: 2
+      MaxAmount: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +603,69 @@ Transform:
   - {fileID: 1235790095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &767254511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767254512}
+  - component: {fileID: 767254513}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767254512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767254511}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1312525585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767254513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767254511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973a41c0b9d1c2d48b0e992c9b260300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolList:
+  - Name: Carp
+    Prefab: {fileID: 1992784270656392465, guid: 29c8e8b72d6b997439fc87d40dd209a6,
+      type: 3}
+    InitSize: 0
+    HasMaxSize: 1
+    MaxSize: 100
+  - Name: Arowana
+    Prefab: {fileID: 3218262974224348414, guid: f1019a8c3ba688a40a80350608a11919,
+      type: 3}
+    InitSize: 0
+    HasMaxSize: 1
+    MaxSize: 100
+  - Name: Orca
+    Prefab: {fileID: 5282283659001997933, guid: 5ed02cd5a4b54e943bd426dabbb920b6,
+      type: 3}
+    InitSize: 0
+    HasMaxSize: 1
+    MaxSize: 100
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +934,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 767254512}
   m_Father: {fileID: 211154859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1467032386
