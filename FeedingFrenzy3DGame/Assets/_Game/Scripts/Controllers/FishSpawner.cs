@@ -94,7 +94,7 @@ namespace FeedingFrenzy
             foreach (var (_, info) in this.fishSpawnInfoDict)
             {
                 objectPool.PoolList.Add(
-                    new Pool(info.FishPrefab, info.MaxAmount, transform) { Name = info.FishPrefab.name, MaxSize = info.MaxAmount }
+                    new Pool(info.FishPrefab, info.MaxAmount, transform) { Name = info.FishPrefab.name, HasMaxSize = true }
                 );
             }
         }
