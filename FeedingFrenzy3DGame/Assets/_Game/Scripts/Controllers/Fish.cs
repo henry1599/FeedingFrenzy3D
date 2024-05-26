@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using HenryDev;
@@ -8,9 +9,17 @@ namespace FeedingFrenzy
     public class Fish : Animal
     {
         [SerializeField] Rigidbody rb;
+        [SerializeField] int maxSize;
         Vector3 currentLookDirection = Vector3.zero;
         Vector3 lastMouseInputPosition;
-        
+        protected int size = 0;
+        public int Size => this.size;
+        public static event Action<int> OnSizeUpdated;
+        protected override void Start()
+        {
+            base.Start();
+            UpdateSize();
+        }
         public override Vector3 GatherMouseInput()
         {
             var pos = MainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -32,11 +41,16 @@ namespace FeedingFrenzy
         {
             this.targetModel.transform.RotateToward(this.currentLookDirection, this.rotateSpeed, upAxis: Vector3.up, eAxis.X | eAxis.Z);
         }
-
         public override Vector3 GatherMouseScreenInput()
         {
             var pos = Input.mousePosition;
             return new Vector3(pos.x, pos.y, this.zDepth);
+        }
+        public virtual void UpdateSize()
+        {
+            this.size++;
+            this.size %= this.maxSize;
+            OnSizeUpdated?.Invoke(this.size);
         }
     }
 }

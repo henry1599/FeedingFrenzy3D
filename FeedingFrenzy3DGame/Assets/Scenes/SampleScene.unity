@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 211154859}
   - component: {fileID: 211154858}
   - component: {fileID: 211154860}
+  - component: {fileID: 211154861}
   m_Layer: 6
   m_Name: Level
   m_TagString: Untagged
@@ -156,6 +157,8 @@ MonoBehaviour:
   width: 15
   height: 10
   polygonCollider2D: {fileID: 211154860}
+  zDepth: 0
+  spawner: {fileID: 211154861}
 --- !u!4 &211154859
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +171,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1312525585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &211154860
@@ -220,6 +224,59 @@ PolygonCollider2D:
       - {x: -7.5, y: -5}
       - {x: 7.5, y: -5}
   m_UseDelaunayMesh: 0
+--- !u!114 &211154861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211154857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1a9c6fd8122e54fbc5ef9c8e9bc50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSpawnInfoDict:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 010000000200000003000000
+    _keys: 010000000200000003000000
+    _values:
+    - FishType: 7
+      FishPrefab: {fileID: 1992784270656392465, guid: 29c8e8b72d6b997439fc87d40dd209a6,
+        type: 3}
+      BurstAmount: 5
+      SpawnRate: 2
+    - FishType: 7
+      FishPrefab: {fileID: 3218262974224348414, guid: f1019a8c3ba688a40a80350608a11919,
+        type: 3}
+      BurstAmount: 3
+      SpawnRate: 1
+    - FishType: 9
+      FishPrefab: {fileID: 5282283659001997933, guid: 5ed02cd5a4b54e943bd426dabbb920b6,
+        type: 3}
+      BurstAmount: 1
+      SpawnRate: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +826,50 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 211154860}
   m_ConfineScreenEdges: 1
   m_Damping: 0.1
+--- !u!1 &1312525583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1312525585}
+  - component: {fileID: 1312525584}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1312525584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312525583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7f66685dd385845a3437fdb33516ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1312525585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312525583}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 211154859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1467032386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -917,6 +1018,7 @@ MonoBehaviour:
   mousePositionWorldSpace: {x: 0, y: 0, z: 0}
   mousePositionScreenSpace: {x: 0, y: 0, z: 0}
   rb: {fileID: 2147263702}
+  maxSize: 3
 --- !u!4 &2147263704
 Transform:
   m_ObjectHideFlags: 0

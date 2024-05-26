@@ -10,11 +10,19 @@ namespace FeedingFrenzy
         [Range(0f, 20f), SerializeField] float width; 
         [Range(0f, 20f), SerializeField] float height;
         [SerializeField] PolygonCollider2D polygonCollider2D;
+        [SerializeField] float zDepth;
+        [SerializeField] FishSpawner spawner;
+        [SerializeField] Transform poolManagerTransform;
         [ShowNativeProperty] public Vector2 Bounds
         {
             get => new Vector2(this.width, this.height);
         }
+        public Transform PoolManagerTransform => this.poolManagerTransform;
 
+        void Start()
+        {
+            this.spawner?.Setup(this);
+        }
         void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
