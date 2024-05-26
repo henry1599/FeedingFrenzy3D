@@ -10,6 +10,7 @@ namespace FeedingFrenzy
         [SerializeField] Rigidbody rb;
         Vector3 currentLookDirection = Vector3.zero;
         Vector3 lastMouseInputPosition;
+        
         public override Vector3 GatherMouseInput()
         {
             var pos = MainCamera.ScreenToWorldPoint(Input.mousePosition);
